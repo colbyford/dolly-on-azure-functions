@@ -1,4 +1,4 @@
-import logging
+import logging, json
 import azure.functions as func
 from GenerateText.instruct_pipeline import InstructionTextGenerationPipeline
 from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -6,13 +6,13 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python GenerateText HTTP trigger function processed a request.')
+    func.HttpResponse.mimetype = 'application/json'
+    func.HttpResponse.charset = 'utf-8'
 
     req_body = req.get_json()
     prompt = req_body.get('prompt')
 
     if prompt:
-        # tokenizer = AutoTokenizer.from_pretrained("databricks/dolly-v2-3b", padding_side="left")
-        # model = AutoModelForCausalLM.from_pretrained("databricks/dolly-v2-3b", device_map="auto")
 
         tokenizer = AutoTokenizer.from_pretrained('/home/site/wwwroot/dolly/tokenizer', local_files_only=True, padding_side="left")
         model = AutoModelForCausalLM.from_pretrained('/home/site/wwwroot/dolly/model', local_files_only=True, device_map="auto")
@@ -22,11 +22,11 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         response = generate_text(prompt)
 
         return func.HttpResponse(
-             response,
+            json.dumps({'response': response}),
              status_code=200
         )
     else:
         return func.HttpResponse(
-             "Error: Missing prompt.",
-             status_code=400
+            json.dumps({'response': "Error: Missing prompt."}),
+            status_code=400
         )
