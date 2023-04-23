@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "c59460e2-9294-4a0e-a2db-017bf3106241",
+		"name": "Databricks Dolly on Azure Functions",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GenerateText (on Azure Functions)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"prompt\": \"Tell me the differences between Dolly Parton and Dolly the sheep.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dolly-func.azurewebsites.net/api/GenerateText?code=hEdzKJub1F4_suuJszhdeAKoVd4Qs13_zAnma5EWUWxKAzFuOnoQvw%3D%3D",
+					"protocol": "https",
+					"host": [
+						"dolly-func",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"GenerateText"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "hEdzKJub1F4_suuJszhdeAKoVd4Qs13_zAnma5EWUWxKAzFuOnoQvw%3D%3D"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GenerateText (Local Docker) Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"prompt\": \"Tell me the differences between Dolly Parton and Dolly the sheep.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/GenerateText",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"GenerateText"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
