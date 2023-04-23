@@ -1,6 +1,10 @@
 # Deploying Databricks Dolly 2.0 on Azure Functions
 
+<h3 align="right">Colby T. Ford, Ph.D.</h3>
+
 This repo contains the Docker image and logic for running Databricks Dolly 2.0 model on Azure Functions.
+
+Companion repo for the _[Deploying Databricks Dolly as an API on Azure Functions](https://colbyford.medium.com/deploying-databricks-dolly-on-azure-functions-fac718842d64)_ Medium blog post.
 
 ## Building and Running the Docker Image Locally
 ```bash
