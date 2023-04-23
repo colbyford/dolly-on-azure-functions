@@ -24,7 +24,7 @@ Here are the example Azure CLI commands for deploying the Docker image-based Fun
 az login
 az group create --name dolly-dev-rg --location eastus
 az storage account create --name dollyst --location eastus --resource-group dolly-dev-rg --sku Standard_LRS
-az functionapp plan create --resource-group dolly-dev-rg --name dolly-asp --location eastus --number-of-workers 1 --sku P3V3 --is-linux
+az functionapp plan create --resource-group dolly-dev-rg --name dolly-asp --location eastus --number-of-workers 1 --sku P3mv3 --is-linux
 az functionapp create --name dolly-func --storage-account dollyst --resource-group dolly-dev-rg --plan dolly-asp --functions-version 4 --os-type Linux --image cford38/dolly-v2-3b-azurefunction:latest
 ```
 
