@@ -8,6 +8,7 @@ docker build -t dollyaf .
 
 docker run --gpus all -p 8080:80 --name dollyaf -it dollyaf
 ```
+
 ### Push to DockerHub
 ```bash
 docker tag dollyaf cford38/dolly-v2-3b-azurefunction:latest
@@ -26,3 +27,5 @@ az storage account create --name dollyst --location eastus --resource-group doll
 az functionapp plan create --resource-group dolly-dev-rg --name dolly-asp --location eastus --number-of-workers 1 --sku P3V3 --is-linux
 az functionapp create --name dolly-func --storage-account dollyst --resource-group dolly-dev-rg --plan dolly-asp --functions-version 4 --os-type Linux --image cford38/dolly-v2-3b-azurefunction:latest
 ```
+
+That's it! Once the Function app is deployed, you can locate the URL and App key from the service's screen in the Azure Portal.
