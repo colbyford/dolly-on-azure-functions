@@ -11,6 +11,11 @@ docker run --gpus all -p 8080:80 --name dollyaf -it dollyaf
 
 ### Push to DockerHub
 ```bash
+## Without the API code (Anonymous mode for local testing)
+# docker tag dollyaf cford38/dolly-v2-3b-azurefunction:latest-anon
+# docker push cford38/dolly-v2-3b-azurefunction:latest-anon
+
+## With the API code enabled (for use on Azure Functions on the cloud)
 docker tag dollyaf cford38/dolly-v2-3b-azurefunction:latest
 docker push cford38/dolly-v2-3b-azurefunction:latest
 ```
