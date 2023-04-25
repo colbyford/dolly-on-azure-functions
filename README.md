@@ -52,3 +52,5 @@ az functionapp create --name dolly-func --storage-account dollyst --resource-gro
 ```
 
 That's it! Once the Function app is deployed, you can locate the URL and App key from the service's screen in the Azure Portal.
+
+Please read the accompanying [blog post](https://colbyford.medium.com/deploying-databricks-dolly-on-azure-functions-fac718842d64) for more context into the use of this Docker image.
