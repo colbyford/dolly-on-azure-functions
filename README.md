@@ -6,7 +6,7 @@ This repo contains the Docker image and logic for running Databricks Dolly 2.0 m
 
 Companion repo for the _[Deploying Databricks Dolly as an API on Azure Functions](https://colbyford.medium.com/deploying-databricks-dolly-on-azure-functions-fac718842d64)_ blog post on Medium.
 
-## Pull the Pre-Built 3B Docker Image
+## Pull the Pre-Built 3B Docker Image (~25GB)
 
 ```bash
 ## Without the API code (Anonymous mode for local testing)
