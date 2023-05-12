@@ -2,12 +2,15 @@ import logging, json
 import azure.functions as func
 from GenerateText.instruct_pipeline import InstructionTextGenerationPipeline
 from transformers import AutoModelForCausalLM, AutoTokenizer
+import torch
 
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python GenerateText HTTP trigger function processed a request.')
     func.HttpResponse.mimetype = 'application/json'
     func.HttpResponse.charset = 'utf-8'
+
+    torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     req_body = req.get_json()
     prompt = req_body.get('prompt')
