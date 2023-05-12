@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: dolly-gpu-1
+  labels:
+    # any Pods with matching labels are included in this Daemon Set
+    app: kubernetes-series
+    tier: monitor
+spec:
+  selector:
+    # Pods will match with the following labels
+    matchLabels:
+      name: dolly-gpu-1
+  template:
+    metadata:
+      labels:
+        name: dolly-gpu-1
+    spec:
+      containers:
+      - name: dolly-gpu-1
+        image: docker.io/cford38/dolly-v2-3b-azurefunction:latest-anon
+        ports:
+        - containerPort: 80
+        command: ["sleep", "infinity"]
+        resources:
+          limits:
+           nvidia.com/gpu: 1
+--- 
+apiVersion: v1
+kind: Service
+metadata:
+  name: dolly
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    name: dolly-gpu-1
