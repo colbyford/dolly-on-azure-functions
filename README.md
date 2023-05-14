@@ -60,4 +60,4 @@ Please read the accompanying [blog post](https://colbyford.medium.com/deploying-
 
 ## Dolly on GPU-enable K8s
 
-For a walkthrough on how to deploy a GPU-enabled Azure Kubernetes cluster, see [GPU-on-AKS/Readme.md](GPU-on-AKS/README.md).
+For a walkthrough on how to deploy a GPU-enabled Azure Kubernetes cluster for Dolly, see [GPU-on-AKS/Readme.md](GPU-on-AKS/README.md).
