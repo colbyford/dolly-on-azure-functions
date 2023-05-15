@@ -50,7 +50,7 @@ az storage account create --name dollyst --location eastus --resource-group doll
 ## Create App Service Plan
 az functionapp plan create --resource-group dolly-dev-rg --name dolly-asp --location eastus --number-of-workers 1 --sku P3mv3 --is-linux
 ## Create Function App
-az functionapp create --name dolly-func --storage-account dollyst --resource-group dolly-dev-rg --plan dolly-asp --functions-version 4 --os-type Linux --image cford38/dolly-v2-3b-azurefunction:latest
+az functionapp create --name dolly-func --storage-account dollyst --resource-group dolly-dev-rg --plan dolly-asp --functions-version 4 --os-type Linux --image cford38/dolly-v2-3b-azurefunction:latest-anon
 ```
 
 That's it! Once the Function app is deployed, you can locate the URL and App key from the service's screen in the Azure Portal.
