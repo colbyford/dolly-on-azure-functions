@@ -21,6 +21,7 @@ _Note: This Docker image will be quite large, so you may need to modify your res
 ```bash
 docker build -t dollyaf .
 
+## Run with GPUs
 docker run --gpus all -p 8080:80 --name dollyaf -it dollyaf
 ```
 
